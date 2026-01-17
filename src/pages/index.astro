@@ -1,11 +1,69 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+
+	<Layout title="Archivo del Reino">
+		<div class="centro">
+		<main class="menu-container">
+			<a href="/inbox" class="menu-card letters">
+				<div class="icon">✉️</div>
+				<h2>Correspondencia Real</h2>
+				<p>Cartas selladas y secretos de la nobleza</p>
+			</a>
+	
+			<a href="/recortes" class="menu-card newspapers">
+				<div class="icon">📰</div>
+				<h2>El Diario Antiguo</h2>
+				<p>Crónicas, noticias y sucesos del pueblo</p>
+			</a>
+
+			<a href="/reglas" class="menu-card newspapers">
+				<div class="icon">📚</div>
+				<h2>Reglas</h2>
+				<p>Si tienes dudas pregunta o lee</p>
+			</a>
+
+		<a href="/ruteoClases" class="menu-card newspapers">
+			<div class="icon">🧙</div>
+			<h2>Poderes</h2>
+			<p>Demasiado poder</p>
+		</a>
+	</main>
+</div>
+	</Layout>
+	
+<style>
+	.centro	{
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+	}
+	.menu-container {
+		display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(350px,100%),1fr));
+		gap: 20px;
+		height: 100%;
+		width: 80%;
+	}
+	.menu-card {
+		margin: auto;
+		width: 300px;
+		padding: 40px;
+		text-align: center;
+		text-decoration: none;
+		border: 2px solid #b79b5b;
+		transition: transform 0.3s ease;
+		background: rgba(255, 248, 230, 0.95);
+		color:  #7b4e2b;
+		border-radius: 15px;
+	}
+	.menu-card:hover { transform: scale(1.05); background: #3b2a26; color:#f6f0dc;}
+	.icon { font-size: 4rem; margin-bottom: 20px; }
+	h2 { font-family: 'Great Vibes', cursive; font-size: 2.5rem; }
+	body {
+		background: #4c3804;
+		align-content: center;
+	}
+</style>
+	

@@ -1,0 +1,98 @@
+---
+const navItems = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Poderes', href: '/ruteoClases' },
+  { name: 'Reglas', href: '/reglas' },
+  { name: 'Periodicos', href: '/recortes' },
+  { name: 'Cartas', href: '/inbox' },
+];
+---
+
+<header class="header">
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/">Roll</a>
+    </div>
+    
+    <ul class="nav-links">
+      {navItems.map((item) => (
+        <li>
+          <a href={item.href}>{item.name}</a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="actions">
+      <a href="/" class="btn-primary">Entrar</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  /* Contenedor principal pegado al top */
+  .header {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  /* Layout del Navbar */
+  .navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+    text-decoration: none;
+  }
+
+  /* Lista de enlaces horizontal */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    color: #3b82f6;
+  }
+
+  /* Botón de acción */
+  .btn-primary {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+  }
+
+  .btn-primary:hover {
+    background-color: #2563eb;
+  }
+
+
+</style>

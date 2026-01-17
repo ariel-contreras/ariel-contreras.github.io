@@ -1,0 +1,43 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection,render } from "astro:content";
+export async function getStaticPaths() {
+  const spells = await getCollection('spells');
+  return spells.map((spell)=>({
+    params: {id: spell.id},
+    props: {spell}
+  }))
+}
+
+const {spell} = Astro.props
+const {data} = spell
+const {nivel,title,clase,rango,tipo,duracion,castingTime} = data
+const {Content} = await render(spell) 
+---
+<Layout>
+<h1>{title}</h1>
+<div class="lista">
+<p><strong>Nivel:</strong> {nivel}</p>
+<p><strong>Clase:</strong> {clase}</p>
+<p><strong>Rango:</strong> {rango}</p>
+<p><strong>Tipo:</strong> {tipo}</p>
+<p><strong>Duracion:</strong> {duracion}</p>
+<p><strong>tiempo de casteo:</strong> {castingTime}</p>
+</div>
+<hr />
+<Content /> 
+</Layout>
+
+<style>
+  .lista{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    font-size: 20px;
+  }
+  body{
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+const clases = ['clerigo', 'guerrero'];
+---
+<Layout>
+<div class="container">
+  {clases.map(clase => (
+    <p>
+      <a href={`/clases/${clase}`}>
+        {clase}
+      </a>
+    </p>
+  ))}
+</div>
+</Layout>
+<style>
+  body{
+    text-align: center;
+  }
+
+  a{
+    font-size: 20px;
+  }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cinzel', 'Garamond', serif;
+      background: #4c3804; 
+      background-size: cover;
+      color: #3e2c1c;
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 40px;
+      background: rgba(255, 248, 230, 0.95);
+      border: 3px solid #8b5e3c;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    }
+
+p {
+  text-align: center;
+      font-family: 'Cinzel', serif;
+      text-shadow: 1px 1px 2px #a0784f;
+}
+
+a {
+      color: #7b4e2b;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #0c1f5d;
+    }
+
+</style>

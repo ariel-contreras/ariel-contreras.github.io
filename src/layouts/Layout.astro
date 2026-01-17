@@ -1,22 +1,59 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+import Navbar from '../components/Navbar.astro';
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <!-- Fuentes para 2026: Playfair para elegancia y Old Standard para el estilo periódico -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+  </head>
+  <body>
+    <Navbar/>
+    <slot /> <!-- Aquí es donde Astro inyectará el contenido de cada página -->
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  /* Estilos que afectan a toda la web */
+  :root {
+    --color-papel: #f8f1e1;
+    --color-tinta: #2b2b2b;
+    --color-oro: #b79b5b;
+		--back-grow: #1a1210;
+    --paper: #f6f0dc;
+    --ink: #3b2f2f;
+    --gold: #b79b5b;
+  }
+
+
+  html {
+    background-color: none; /* Fondo oscuro por defecto para el menú */
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  p {
+    font-family: 'Old Standard TT', serif;
+  }
+
+  table{
+  background-color: red;
+}
 </style>
+

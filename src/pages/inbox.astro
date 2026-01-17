@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+const cartas = await getCollection('cartas');
+---
+
+<Layout title="mensajes reales">
+  <section class="seccion-periodicos">
+    <h2> Inbox real</h2>
+    
+    <div class="menu-container">
+      {
+        cartas.map(p => {
+          const { id, data } = p; 
+          const { firma, cargo, resumen } = data;
+          
+          return (
+            <a class="menu-card"  href={`/cartas/${id}`}>
+            <article > 
+              <h3>{firma}</h3>
+              <p>{cargo}</p>
+              <p>{resumen}</p>
+              <p class="leer-mas">
+                Leer recorte completo
+              </p>
+            </article>
+          </a>
+          );
+        })
+      }
+    </div>
+  </section>
+</Layout>
+
+
+	
+<style>
+
+
+	.menu-container {
+		display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(350px,100%),1fr));
+		gap: 40px;
+    background: #4c3804;
+    margin: 20px;
+	}
+	.menu-card {
+		width: 300px;
+		padding: 40px;
+		text-align: center;
+		text-decoration: none;
+		border: 2px solid #b79b5b;
+		transition: transform 0.3s ease;
+		background: rgba(255, 248, 230, 0.95);
+		color:  #7b4e2b;
+    margin: auto;
+    border-radius: 15px;
+	}
+	.menu-card:hover { transform: scale(1.05); background: #3b2a26; color:#f6f0dc;}
+	.icon { font-size: 4rem; margin-bottom: 20px; }
+	h2 { font-family: 'Great Vibes', cursive; font-size: 2.5rem;color: #f6f0dc; text-align: center; }
+
+  body{
+		background: #4c3804;;
+  }
+
+  .leer-mas {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #007bff;
+    text-decoration: none;
+  }
+</style>
+	

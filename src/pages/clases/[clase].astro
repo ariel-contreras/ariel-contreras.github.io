@@ -1,0 +1,87 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const allSpells = await getCollection('spells');
+  
+  // 1. Extraemos todas las clases únicas que existen en tus archivos
+  // Si un hechizo puede tener varias clases, usamos flat()
+  const clasesUnicas = [...new Set(allSpells.map(spell => spell.data.clase).flat())];
+  console.log(clasesUnicas)
+
+  // 2. Generamos una ruta por cada clase
+  return clasesUnicas.map((clase) => {
+    // Filtramos los hechizos que pertenecen a esta clase específica
+    const filteredSpells = allSpells.filter(spell => 
+      spell.data.clase.includes(clase)
+    );
+
+    return {
+      params: { clase: clase.toLowerCase() }, // Esto define el valor de [clase] en la URL
+      props: { spells: filteredSpells },      // Pasamos los hechizos filtrados como prop
+    };
+  });
+}
+
+// 3. Recogemos los datos
+const { clase } = Astro.params;
+const { spells } = Astro.props;
+---
+
+<Layout>
+  <main class="lista">
+    <h1>Hechizos para la clase: {clase}</h1>
+    
+    {spells.length === 0 ? (
+      <p>No hay hechizos para esta clase.</p>
+    ) : (
+      spells.map(spell => {
+        const { id, data } = spell; 
+        const { title, nivel, resumen } = data;
+        return (
+          <div class="item">
+            <a href={`/hechizos/${id}`} class="titulo">{title}</a>
+            <p class="atributo"><b>Nivel:</b> {nivel}</p>
+            <p class="atributo">{resumen}</p>
+          </div>
+        );
+      })
+    )}
+  </main>
+</Layout>
+<style>
+  /* Contenedor general */
+.lista {
+  display: flex;
+  flex-direction: column;   /* uno debajo del otro */
+  align-items: center;      /* centra horizontal */
+  gap: 20px;                /* espacio entre items */
+  padding: 40px 0;
+}
+
+/* Cada elemento */
+.item {
+  width: 100%;
+  max-width: 900px;         /* controla el ancho */
+  background: #f9f9f9;
+  border-radius: 12px;      /* bordes redondeados */
+  padding: 20px 24px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* Texto */
+.titulo {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.atributo {
+  font-size: 20px;
+  color: #555;
+  margin: 4px 0;
+}
+
+</style>

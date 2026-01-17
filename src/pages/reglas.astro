@@ -1,0 +1,202 @@
+---
+import Navbar from '../components/Navbar.astro';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reglas de mi Juego Homebrew</title>
+  <style>
+    /* Fondo estilo pergamino */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cinzel', 'Garamond', serif;
+      background: #4c3804; 
+      background-size: cover;
+      color: #3e2c1c;
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 40px;
+      background: rgba(255, 248, 230, 0.95);
+      border: 3px solid #8b5e3c;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    }
+
+    h1, h2 {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      text-shadow: 1px 1px 2px #a0784f;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    /* Estilo de secciones con borde rúnico */
+    section {
+      border-left: 5px solid #8b5e3c;
+      padding-left: 15px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    section::before {
+      content: "🜨"; /* símbolo decorativo tipo runa */
+      position: absolute;
+      left: -25px;
+      top: 0;
+      font-size: 1.5em;
+      color: #a0784f;
+    }
+
+    /* Estilo de listas */
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
+    }
+
+    /* Efecto de letras iniciales grandes */
+    p:first-letter {
+    float: left;
+    font-size: 3.2rem;
+    line-height: 0.5;
+    padding-right: 0.4rem;
+    font-family: 'Great Vibes', cursive;
+    color: #5a2f2f;
+  }
+
+    /* Footer tipo pergamino */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #5a3e2b;
+    }
+
+    /* Enlaces estilo mágico */
+    a {
+      color: #7b4e2b;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #a0784f;
+    }
+  </style>
+  <!-- Fuente medieval de Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <Navbar/>
+  <div class="container">
+    <h1>Reglas del Reino de Midrul</h1>
+
+    <section>
+      <h2>1. Introducción</h2>
+      <p>Bienvenido, aventurero. Aquí las leyes de la magia, el combate y la diplomacia rigen la vida de héroes y villanos por igual. Este documento contiene las reglas de nuestro juego homebrew de rol.</p>
+    </section>
+
+    <section>
+      <h2>2. Creación de Personajes</h2>
+      <p>Cada jugador deberá crear un personaje con las siguientes características:</p>
+      <ul>
+        <li>Nombre y raza</li>
+        <li>Clase y especialidad</li>
+        <li>Habilidades y puntos de vida</li>
+        <li>Inventario inicial</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Recuperacion de mana</h2>
+      <p>
+        para recuperar mana se tira el dado que representa la mitad del mana maximo. En los primeros dados d4 y d6 se agruparan en los resultados de a pares
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Los trigger</h2>
+      <p> Con la experiencias viene el automatizar acciones. Cuando ocurre un evente que el jugador tenia previsto. Se realizara la accion de <b>trigger</b>, siempre y cuando se cumplan con los requerimientos. Se puden usar un maximo de 3 que se tengan aprendidos. Se cambian entre descansos y no hay forma de evitar su ejecucion</p>
+    </section>
+
+    <section>
+      <h2>5. Dar ayuda</h2>
+      <p> Si tu compañero de aventura necesita ayuda, siempre puedes <b>dar una mano</b>. prestaras tu accion, siempre y cuando no hayas actuado antes</p>
+    </section>
+
+    <section>
+      <h2> 6.Combos</h2>
+      <p>
+        las habilidades que tienen combo permite ejecutar las acciones que se encuentran escritas</p>
+    </section>
+
+    <section>
+      <h2>7. Accion</h2>
+      <p> igual que dnd. Pero ademas se puede repetir el uso de los consumibles, volver a moverse o recargar mana una vez mas. Tambien en tu turno podras moverte (lo que dice tu personaje) y usar un consumible
+
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Niveles</h2>
+      <p>Los niveles van del d4 al d100. Estos se relacion con tus estadisticas (fuerza, constitucion, sabiduria, inteligencia...) y ademas con Armas y herramientas. Por ejemplo un guerrero que usa un d6 para tirar con fuerza y pelea con espadas y con ellas tira con un d10. Pero si quiere usa unr arma con la que no es hábil tirara el dado mínimo de dicha arma</p>
+    </section>
+
+    <section>
+      <h2>9. Calidad de armas y herramientas</h2>
+      <p> la calidad de las armas determinan el dado minimo y el dado maximo. Por ejemplo una espada de madera tirara con d4 como minimo y maximo. Una espada de hierro d4/d6, una espada de metal d6/d8</p>
+    </section>
+    
+    <section>
+      <h2>10. Entrenamiento</h2>
+      <p>Para subir de nivel se requiere <b>entrenar</b> lo que consume 1 de tus 3 energias fuera del combate. Pero a cambio podras tirar con tu dado de nivel de habilidad o caracteriscas que eligas para lograr que <b>explote</b>. Si explota podras volver a tirar y sino sumaras un +1 a tus tiradas</p>
+    </section>
+
+    <section>
+      <h2>11. Sobre escritura de las tiradas</h2>
+      <p>las magias o algunas habilidades sobrescribe las tiradas. Por ejemplo cura del clérigo en vez de empezar con el tipico  d4 en cambio tirara 2d4 </p>
+    </section>
+
+    <section>
+      <h2> 12 . La vida </h2>
+      <p> La vida se calcula de la siguiente forma: 10 + 10 * nivel. Por ejemplo 10 + 10 * 1 = 20; si tu constitucion es un d4 tu nivel es 1 si un d6 2 y asi sucesiva,emte</p>
+    </section>
+
+    <section>
+      <h2>13. Los puntos magicos</h2>
+      <p>los pm son el dado que se usa para castear de forma principal. Sabiduria para la magia blanca, inteligencia para la magia negra</p>
+    </section>
+
+    <section>
+      <h2>14. Armadura</h2>
+      <p>la armadura agrega puntos de armadura segun su calidad. A su vez si esta encantada dotara de efectos pasivos o consumibles a sus usuarios. Despues de cada descanso se podra tratar la armadura para recuperar parte del daño o usar consumibles/llevarla al herrero para repararla en su totalidad</p>
+    </section>
+
+    <footer>
+      © 2026 Reglas Homebrew de Eldoria - Creado con magia y fantasía
+    </footer>
+  </div>
+</body>
+</html>
+

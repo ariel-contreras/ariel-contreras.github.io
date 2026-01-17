@@ -1,0 +1,111 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection,render } from "astro:content";
+export async function getStaticPaths() {
+  const periodicos = await getCollection('periodicos');
+  return periodicos.map((periodico)=>({
+    params: {id: periodico.id},
+    props: {periodico}
+  }))
+}
+
+const {periodico} = Astro.props
+const {data} = periodico
+const {empresa, title, subtitle, copete} = data
+const {Content} = await render(periodico) 
+---
+<Layout title="Diario">
+<div  class="paper">
+  <header>
+    <h1>{empresa}</h1>
+    <p>{subtitle}</p>
+  </header>
+
+<article>
+  <h2>{title}</h2>
+  <div class="meta">{copete}</div>
+  <Content/>
+</article>
+
+<footer>
+  © 1897 · {empresa} · Todos los derechos reservados
+</footer>
+</div>
+
+</Layout>
+
+<style>
+.paper {
+max-width: 1100px;
+margin: auto;
+padding: 40px;
+background: #f8f1e1;
+box-shadow: 0 0 30px rgba(0,0,0,0.2);
+border: 1px solid #c9bfa7;
+}
+
+footer {
+margin-top: 40px;
+text-align: center;
+font-size: 0.8rem;
+border-top: 2px solid #2b2b2b;
+padding-top: 10px;
+}
+
+body {
+margin: 0;
+padding: 40px;
+background: #f4ecd8;
+color: #2b2b2b;
+font-family: 'Old Standard TT', serif;
+}
+
+header {
+text-align: center;
+border-bottom: 4px double #2b2b2b;
+padding-bottom: 20px;
+margin-bottom: 30px;
+}
+
+header h1 {
+font-family: 'Playfair Display', serif;
+font-size: 4rem;
+margin: 0;
+font-weight: 900;
+letter-spacing: 2px;
+}
+
+header p {
+margin: 5px 0 0;
+font-size: 0.9rem;
+letter-spacing: 1px;
+}
+
+.meta {
+font-size: 0.8rem;
+font-style: italic;
+margin-bottom: 10px;
+}
+
+article {
+border: 1px solid #2b2b2b;
+padding: 20px;
+background: rgba(255,255,255,0.3);
+}
+
+article h2 {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem;
+margin-top: 0;
+border-bottom: 2px solid #2b2b2b;
+padding-bottom: 10px;
+}
+
+article p {
+font-size: 1rem;
+line-height: 1.6;
+text-align: justify;
+}
+
+</style>
