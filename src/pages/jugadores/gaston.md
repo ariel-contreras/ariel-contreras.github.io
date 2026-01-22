@@ -1,0 +1,90 @@
+# clérigo
+
+## votos vinculantes
+- voto de silencio
+    - +10 a tus ataques físicos
+    - +3 de movimiento
+    - no puedes hablar durante 2 turnos
+- voto de la quietud
+    - aumenta tu distancia
+    - permite acertar a través de las coberturas
+    - un +/d segun tu nivel de clerigo
+    - no puedes moverte durante 2 turnos
+    - si te mueves un 2d6 de daño
+- voto del ritual
+    - duplica los efectos de los hechizos por cada turno que dure el ritual
+    - maximo 3 turnos (x8)
+    - si recibes daño es la dificultad a superar para mantener el hechizo
+        - main dado
+- voto de vidas compartidas
+    - comparte tus votos
+    - tu salud
+    - tus estados
+    - hace tu objetivo tu herramienta de casteo
+- voto la cruz invertida
+    - los efectos de tu curacion se convierte en daño
+    - el daño se convierte en curación
+    - dura todo un dia
+## magias
+- esna
+    - cura maldiciones
+- cura
+    - segun nivel del clerigo:
+        - 2d4
+        - 2d6
+        - 2d8
+        - 2d10
+- cura +
+    - castea cura en un radio de 30 pies
+    - cura ++
+        - castea cura + 2 veces
+- escudo magico
+    - eligue un elemento +10 de vida
+    - sin elemento +15
+    - se pueden acumular si hay dominio de los sub elementos
+    - da daño elemental al que la recibe
+- full life
+    - cura toda la vida (no armadura)
+- revive
+    - levanta a un aliado con 1 de vida
+    - maximo 3 turnos muerto
+- revive full
+    - revive a full vida
+    - maximo 3 turnos muerto
+- espejo
+    - los hechizos que son dirigidos a uno se reflejan
+- reflejo
+    - hechizo de reaccion que refleja un ataque cualquiera
+- estática
+    - maldicion
+    - acumula el daño con cada ataque
+    - d4 + acumulado
+    - activa todas las maldiciones
+- hermandad
+    - comparte los estados entre 1d4 de objetivos durande 3 turnos
+- gran descarga
+    - absorbe todo el daño acumulado de la estatica y lo castea en un radio de radio de 30 pies
+- mina sagrada
+    - elige una celda donde se quedara una mina que se activa al pasar 2c de distancia
+    - d20 + caida
+
+## angel de la guarda
+- da una bendicion a un aliado que:
+    - cuando un enemigo ataque de cerca lo empuja al maximo de su movimiento
+        - efecto en area 1 casilla al rededor
+        - cuando ataque es distancia anula el ataque (no sirve con los magicos)
+
+## mano de la diosa
+- golpe +d segun nivel
+- agarre
+- empuje
+    - mueve un +d segun nivel
+- desvio
+- bloqueo
+    - cubre un ataque +d segun nivel
+- arrojar
+    - agarra un elemento de la zona del combate y lo tira contra alguien
+    - aturde (desventaja al atacar y ventaja del enemigo al atacar)
+    - +d segun nivel +d segun el material
+- “la fe mueve montañas”
+    - permite hacer levitar a alguien o algo
